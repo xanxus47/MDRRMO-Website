@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Portal with Image Slider and Description</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Image Slider Styles */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            margin: 2rem 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .slider {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            animation: slide 15s infinite;
+        }
+        
+        .slide {
+            position: relative;
+            width: 20%;
+            height: 100%;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .slide:hover .slide-caption {
+            transform: translateY(0);
+        }
+        
+        .slide-caption h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .slide-caption p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        @keyframes slide {
+            0%, 15% { transform: translateX(0); }
+            20%, 35% { transform: translateX(-20%); }
+            40%, 55% { transform: translateX(-40%); }
+            60%, 75% { transform: translateX(-60%); }
+            80%, 95% { transform: translateX(-80%); }
+            100% { transform: translateX(0); }
+        }
+        
+        /* Pause animation on hover */
+        .slider-container:hover .slider {
+            animation-play-state: paused;
+        }
+        
+        /* Description Container Styles */
+        .description-container {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .description-title {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .description-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+        
+        .description-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .slider-container {
+                height: 350px;
+            }
+            
+            .slide-caption {
+                transform: translateY(0);
+                padding: 1rem;
+            }
+            
+            .slide-caption h3 {
+                font-size: 1.2rem;
+            }
+            
+            .description-container {
+                padding: 1.5rem;
+            }
+            
+            .description-title {
+                font-size: 1.5rem;
+            }
+            
+            .description-content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <main class="container">
+        <!-- Image Slider Section -->
+        <div class="slider-container">
+            <div class="slider">
+                <!-- Slide 1 -->
+                <div class="slide">
+                    <img src="image/gie502.JPG" alt="Alerts and Warning Team">
+                    <div class="slide-caption">
+                        <h3>LGU MAGSAYSAY</h3>
+                        <p>Blessing and Giving of Free Vehicle to residents of Magsaysay.</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <img src="image/gie460.JPG" alt="Alerts and Warning Team">
+                    <div class="slide-caption">
+                        <h3>LGU MAGSAYSAY</h3>
+                        <p>Blessing and Giving of Free Vehicle to residents of Magsaysay.</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <img src="image/gie459.JPG" alt="Alerts and Warning Team">
+                    <div class="slide-caption">
+                        <h3>LGU MAGSAYSAY</h3>
+                        <p>Blessing and Giving of Free Vehicle to residents of Magsaysay.</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 -->
+                <div class="slide">
+                    <img src="image/gie452.JPG" alt="Alerts and Warning Team">
+                    <div class="slide-caption">
+                        <h3>LGU MAGSAYSAY</h3>
+                        <p>Blessing and Giving of Free Vehicle to residents of Magsaysay.</p>
+                    </div>
+                </div>
+                
+                <!-- Slide 5 (new) -->
+                <div class="slide">
+                    <img src="image/gie484.JPG" alt="Alerts and Warning Team">
+                    <div class="slide-caption">
+                        <h3>LGU MAGSAYSAY</h3>
+                        <p>Blessing and Giving of Free Vehicle to residents of Magsaysay.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Description Container Section -->
+        <div class="description-container">
+            <h1 class="description-title">Detailed Description</h1>
+            <div class="description-content">
+                <p>The Local Government Unit (LGU) of Magsaysay, Occidental Mindoro, has launched a transformative initiative to enhance mobility and support the livelihood of its residents through a Free Vehicle Distribution Program. This program aims to provide accessible transportation solutions to the people of Magsaysay, particularly targeting underserved communities and individuals in need, to improve their access to essential services, economic opportunities, and social activities..</p>
+                
+                <p>Beneficiaries are selected based on need, with priority given to low-income households, community workers, and indigenous groups. Applicants must be residents of Magsaysay and demonstrate how the vehicle will support their livelihood or community service. </p>
+                
+                <p>The Free Vehicle Distribution Program is designed to address the transportation challenges faced by residents in Magsaysay, a municipality characterized by rugged terrain and vast plains, located in the southernmost part of Mindoro Island. By providing vehicles such as motorcycles, tricycles, or utility vehicles, the LGU seeks to empower individuals, boost local economic activities, and foster community development.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

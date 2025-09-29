@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipal DRRM Office | Magsaysay, Occidental Mindoro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0066cc;
+            --secondary: #004080;
+            --accent: #ff6b00;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --info: #17a2b8;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        /* Header Styles - Enhanced Navbar */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .header-content {
+            padding: 1rem 0;
+        }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+            transition: transform 0.3s ease;
+        }
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .emergency-contact {
+            background-color: var(--danger);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        .emergency-contact:hover {
+            transform: translateY(-2px);
+        }
+        nav {
+            padding: 0.5rem 0;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        nav ul li a:hover, nav ul li a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        nav ul li a:hover::after {
+            width: 50%;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        /* Hero Section */
+        .hero {
+            background: url('image/MDRRMO PICS.JPG') no-repeat center center/cover;
+            height: 100vh;
+            min-height: 675px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+            text-align: center;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            padding: 0 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .hero h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #e05e00;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        /* Gallery Section */
+        .gallery-section {
+            padding: 3rem 0;
+            background-color: white;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        .gallery-lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        .lightbox-caption {
+            color: white;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .lightbox-close:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+        .lightbox-prev, .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+        .lightbox-prev:hover, .lightbox-next:hover {
+            color: var(--accent);
+        }
+        .lightbox-prev {
+            left: -50px;
+        }
+        .lightbox-next {
+            right: -50px;
+        }
+        /* Quick Links */
+        .quick-links {
+            padding: 3rem 0;
+            background-color: white;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #666;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .link-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .link-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .link-card-content {
+            padding: 1.5rem;
+        }
+        .link-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        .link-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        /* Core Values Section */
+        .core-values {
+            padding: 3rem 0;
+            background-color: white;
+        }
+        .core-values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .core-value-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .core-value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .core-value-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 102, 204, 0.1);
+            border-radius: 50%;
+        }
+        .core-value-card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+        .core-value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        /* Alerts Section */
+        .alerts {
+            background-color: #fff8e1;
+            padding: 1.5rem 0;
+            border-top: 1px solid #ffe0b2;
+            border-bottom: 1px solid #ffe0b2;
+        }
+        .alert-container {
+            display: flex;
+            align-items: center;
+        }
+        .alert-icon {
+            font-size: 2rem;
+            color: var(--warning);
+            margin-right: 1rem;
+        }
+        .alert-content h3 {
+            color: var(--warning);
+            margin-bottom: 0.3rem;
+        }
+        /* Services Section */
+        .services {
+            padding: 3rem 0;
+            background-color: var(--light);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        /* News Section */
+        .news {
+            padding: 3rem 0;
+            background-color: white;
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .news-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .news-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .news-content {
+            padding: 1.5rem;
+        }
+        .news-date {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        .news-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        .news-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        .footer-column ul {
+            list-style: none;
+        }
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        .contact-info p {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        .contact-info i {
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            background-color: var(--secondary);
+            transform: scale(1.1);
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo {
+                margin-bottom: 1rem;
+                justify-content: center;
+            }
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+            }
+            nav {
+                display: none;
+            }
+            nav.active {
+                display: block;
+                background: var(--secondary);
+                padding: 1rem;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+            nav ul li a {
+                display: block;
+                padding: 1rem;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .btn {
+                display: block;
+                width: 80%;
+                margin: 0 auto 1rem;
+            }
+            .btn-outline {
+                margin-left: auto;
+            }
+            .alert-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .alert-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .lightbox-prev, .lightbox-next {
+                font-size: 1.5rem;
+                padding: 0.5rem;
+            }
+            .lightbox-prev {
+                left: 10px;
+            }
+            .lightbox-next {
+                right: 10px;
+            }
+        }
+        /* Organizational Chart Styles */
+        .org-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .level {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+        }
+        .level::before {
+            content: '';
+            position: absolute;
+            top: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 2rem;
+            background-color: var(--primary);
+            opacity: 0.3;
+        }
+        .node {
+            background-color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            width: 220px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+        .node::before {
+            content: '';
+            position: absolute;
+            top: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 2rem;
+            background-color: var(--primary);
+            opacity: 0.3;
+            z-index: -1;
+        }
+        .node:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .node.highlight {
+            background-color: var(--primary);
+            color: white;
+        }
+        .node.highlight p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .node.highlight .position {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .node img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--light);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .node:hover img {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+        .position {
+            display: inline-block;
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .node h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark);
+        }
+        .node p {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 0.5rem;
+        }
+        .node .contact {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 0.5rem;
+        }
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            padding: 2rem;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+            transition: all 0.3s ease;
+        }
+        .close-modal:hover {
+            color: var(--danger);
+            transform: rotate(90deg);
+        }
+        .modal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .modal-header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1.5rem;
+            border: 3px solid var(--light);
+        }
+        .modal-header-text h2 {
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+        .modal-header-text .position {
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .modal-body p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        .modal-contact {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        .modal-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .modal-contact i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+            width: 20px;
+            text-align: center;
+        }
+        /* Vision & Mission */
+        .vision-mission-section {
+            padding: 60px 0;
+            background-color: #f5f7fa;
+        }
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .vision-card, .mission-card {
+            flex: 1 1 500px;
+        }
+        .vision-card {
+            border-top: 5px solid var(--primary);
+        }
+        .mission-card {
+            border-top: 5px solid var(--accent);
+        }
+        .vision-icon, .mission-icon {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            font-style: italic;
+            color: var(--primary);
+            margin: 10px 0;
+            padding-left: 15px;
+            border-left: 3px solid var(--accent);
+        }
+        .mission-details, .vision-details {
+            margin-top: 15px;
+        }
+        .mission-features {
+            list-style: none;
+            margin-top: 10px;
+        }
+        .mission-features li {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        .mission-features i {
+            color: var(--success);
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+        .vision-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .vision-item {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 102, 204, 0.08);
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+        .vision-item i {
+            color: var(--accent);
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        .vision-item span {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <img src="image/MDR LOGO (FINAL).png" alt="MDRRMO Logo">
+                    <div class="logo-text">
+                        <h1>MAGSAYSAY, OCCIDENTAL MINDORO</h1>
+                        <p>Municipal Disaster Risk Reduction and Management Office</p>
+                    </div>
+                </div>
+                <div class="emergency-contact">
+                    <i class="fas fa-phone"></i> Emergency: 0909 965 3531
+                </div>
+                <button class="hamburger" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Disaster Preparedness</a></li>
+                    <li><a href="#">Early Warning</a></li>
+                    <li><a href="mission&vision1.html">Mission & Vision</a></li>
+                    <li><a href="view_records.php">Overtime Records</a></li>
+                    <li><a href="login.php">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Building a Disaster-Resilient Community</h2>
+            <p>We are committed to reducing disaster risks and enhancing community preparedness through proactive measures and effective response strategies.</p>
+            <div class="hero-buttons">
+                <a href="contact.php" class="btn">Report Emergency</a>
+                <a href="PREPAREDNESS TIPS.html" class="btn btn-outline">Learn Preparedness Tips</a>
+            </div>
+        </div>
+    </section>
+    <!-- Org Chart Section -->
+    <div class="container">
+        <section id="structure">
+            <div class="section-title">
+                <h2>Our Leadership Team</h2>
+            </div>
+            <div class="org-chart">
+                <!-- Level 1 -->
+                <div class="level">
+                    <div class="node highlight" onclick="showModal('LDRRMO III', 'Sheila S. Aguilar', 'Head of Office', 'Oversees all disaster risk reduction and management operations. With 10 years of experience in emergency management and disaster response.', 'sheila.aguilar@gmail.com', '0970 132 0700')">
+                        <img src="image/MAAM SHEILA.png" alt="LDRRMO III">
+                        <div class="position">Head of Office</div>
+                        <h3>Sheila S. Aguilar</h3>
+                        <p>LDRRMO III Officer</p>
+                        <div class="contact"><i class="fas fa-envelope"></i> mdrrmo.mgy@gmail.com</div>
+                    </div>
+                </div>
+                <!-- Level 2 -->
+                <div class="level">
+                    <div class="node" onclick="showModal('Administration Division', 'Ma.Cecille V. Ramirez', 'Division Chief', 'Manages office administration, budgeting, and human resources. Certified in office administration with 3 years of government service.', 'mcelr25@gmail.com', '0916 257 6418')">
+                        <img src="image/cecille.png" alt="Administration Chief">
+                        <div class="position">Division Chief</div>
+                        <h3>Ma.Cecille V. Ramirez</h3>
+                        <p>Administration Division</p>
+                        <div class="contact"><i class="fas fa-phone"></i> 0916 257 6418</div>
+                    </div>
+                    <div class="node" onclick="showModal('Operations Division', 'RN. John Bosco G. Quilit', 'Division Chief', 'Leads emergency response operations and field activities. Nurse in a local Rural Health Unit for almost 5 years and now serves as a LDRRMO II officer with extensive disaster response and basic life support experience.', 'johnboscoquilit@gmail.com', '0968 868 3153')">
+                        <img src="image/SIR JB 2.png" alt="Operations Chief">
+                        <div class="position">Division Chief</div>
+                        <h3>John Bosco G. Quilit</h3>
+                        <p>Operations Division</p>
+                        <div class="contact"><i class="fas fa-phone"></i> 0968 868 3153</div>
+                    </div>
+                    <div class="node" onclick="showModal('Planning Division', 'RN. Rose Anne P. Macadaeg', 'Division Chief', 'Develops disaster risk reduction plans and programs. Registered Nurse (RN) and Professional License Teacher (LPT) with specialization in basic life support and disaster management.', 'roseannemacadaeg@gmail.com', '0966 328 6021')">
+                        <img src="image/MAAM NETHS.png" alt="Planning Chief">
+                        <div class="position">Division Chief</div>
+                        <h3>Rose Anne P. Macadaeg</h3>
+                        <p>Planning Division</p>
+                        <div class="contact"><i class="fas fa-phone"></i> 0966 328 6021</div>
+                    </div>
+                </div>
+                <!-- Level 3 -->
+                <div class="level">
+                    <div class="node" onclick="showModal('Finance Section', 'Lester Angelo S. Cara', 'Section Head', 'Graduate of Bachelor of Science in Information Technology. Currently working under MDRRMO Magsaysay, Occidental Mindoro. Responsible for holding large scale records of population survey of MDRRMO database', 'lester.angelo17@gmail.com', '0977 091 0190')">
+                        <img src="image/LEXTER.png" alt="Finance Head">
+                        <div class="position">Section Head</div>
+                        <h3>Lester Angelo S. Cara</h3>
+                        <p>I.T Specialist</p>
+                    </div>
+                    <div class="node" onclick="showModal('Logistics Section', 'Melody Q. Arnaiz', 'Section Head', 'Oversees equipment and resource management for disaster response. Certified in supply chain management.', 'paldrrm.mgy@gmail.com', '0915 042 9631')">
+                        <img src="image/MELODY.png" alt="Logistics Head">
+                        <div class="position">Section Head</div>
+                        <h3>Melody Q. Arnaiz</h3>
+                        <p>Logistics Section</p>
+                    </div>
+                    <div class="node" onclick="showModal('Training Section', 'John Menard Q. Amante', 'Section Head', 'Develops and implements disaster preparedness training programs. And a Professional License Teacher (LPT) with 3 years experience in handling training with different Government agencies including NGOs.', 'jmamante0730@gmail.com', '0975 083 0809')">
+                        <img src="image/MENARD.png" alt="Training Head">
+                        <div class="position">Section Head</div>
+                        <h3>John Menard Q. Amante</h3>
+                        <p>Training Section</p>
+                    </div>
+                    <div class="node" onclick="showModal('Early Warning Section', 'Froilan L. Fernandez', 'Section Head', 'Manages early warning systems and risk communication. A Civil Service Passer and a dependable section chief with 5 years above experience in handling different operations.', 'froi25@gmail.com', '0945 564 3406')">
+                        <img src="image/FRIOLAN.png" alt="EWS Head">
+                        <div class="position">Section Head</div>
+                        <h3>Froilan L. Fernandez</h3>
+                        <p>Early Warning Section</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Gallery</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="image/3.JPG" alt="MDRRMO Office">
+                    <div class="gallery-caption">MDRRMO Office</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="image/5.JPG" alt="MDRRMO Side Angle">
+                    <div class="gallery-caption">MDRRMO Side Angle</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="image/4.JPG" alt="LGU Municipality Front Shot">
+                    <div class="gallery-caption">LGU Municipality Front Shot</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="image/1.JPG" alt="LGU Drone Shot">
+                    <div class="gallery-caption">LGU Drone Shot</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="image/2.JPG" alt="LGU Drone Shot Front View">
+                    <div class="gallery-caption">LGU Drone Shot Front View</div>
+                </div>
+            </div>
+            <div class="gallery-lightbox" id="galleryLightbox">
+                <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+                <span class="lightbox-prev" onclick="changeLightboxImage(-1)">&#10094;</span>
+                <span class="lightbox-next" onclick="changeLightboxImage(1)">&#10095;</span>
+                <div class="lightbox-content">
+                    <img src="" alt="">
+                    <div class="lightbox-caption"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Core Values Section -->
+    <section class="core-values">
+        <div class="container">
+            <div class="section-title">
+                <h2>OUR CORE VALUES</h2>
+            </div>
+            <div class="section-subtitle">
+                The principles that guide our actions and decisions
+            </div>
+            <div class="core-values-grid">
+                <div class="core-value-card">
+                    <div class="core-value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Compassion</h3>
+                    <p>We serve community members with empathy and genuine care.</p>
+                </div>
+                <div class="core-value-card">
+                    <div class="core-value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>We uphold the highest standards of honesty and accountability in our operations.</p>
+                </div>
+                <div class="core-value-card">
+                    <div class="core-value-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>We pursue continuous improvement in our projects and services to better serve the community.</p>
+                </div>
+                <div class="core-value-card">
+                    <div class="core-value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>We believe in the power of partnerships and collective action in building resilience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Early Warning System</h3>
+                    <p>Timely dissemination of warnings and advisories to the community before disasters strike.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-people-carry"></i>
+                    </div>
+                    <h3>Search & Rescue</h3>
+                    <p>Trained personnel ready to respond to emergencies and conduct rescue operations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Community Training</h3>
+                    <p>Capacity building programs to enhance community disaster preparedness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- News -->
+    <section class="news">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest News & Updates</h2>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <img src="image/DSC900.JPG" alt="News Image">
+                    <div class="news-content">
+                        <div class="news-date">June 15, 2025</div>
+                        <h3>Newly Vehicles successfully blessed and distributed.</h3>
+                        <p>New chariot vehicles, Toyota Fortuner and Ambulance arrived at Magsaysay, Occidental Mindoro.</p>
+                        <a href="news11.html" class="btn">Read More</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="EWS IMAGE/3.jpg" alt="News Image">
+                    <div class="news-content">
+                        <div class="news-date">July 10, 2025</div>
+                        <h3>Early Warning Signs</h3>
+                        <p>Newly installed Early Warning Signs into different Barangay's provided by MDRRMO, Magsaysay.</p>
+                        <a href="news1.html" class="btn">Read More</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="Food Packs/FRONT.jpg" alt="News Image">
+                    <div class="news-content">
+                        <div class="news-date">June 5, 2023</div>
+                        <h3>MDRRMO gave food packs to victims of typhoon EMONG and DANTE</h3>
+                        <p>The local government of Magsaysay is active for giving relief goods to all victims of typhoon.</p>
+                        <a href="news3.html" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>About MDRRMO</h3>
+                    <p>The Municipal Disaster Risk Reduction and Management Office is committed to building disaster-resilient communities through preparedness, mitigation, response, and recovery programs.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/mdrrmo.magsaysay" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@qcfilms47" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Disaster Preparedness</a></li>
+                        <li><a href="#">Early Warning System</a></li>
+                        <li><a href="#">Evacuation Centers</a></li>
+                        <li><a href="#">Emergency Contacts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Jose P. Laurel., Street, Poblacion, Magsaysay, Occidental Mindoro</p>
+                        <p><i class="fas fa-phone"></i> 0909 965 3531</p>
+                        <p><i class="fas fa-phone-alt"></i> 911 (Emergency)</p>
+                        <p><i class="fas fa-envelope"></i> mdrrmo.mgy@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Municipal Disaster Risk Reduction and Management Office. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    <!-- Modal -->
+    <div class="modal" id="detailsModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <img src="" alt="" id="modalImage">
+                <div class="modal-header-text">
+                    <h2 id="modalName"></h2>
+                    <div class="position" id="modalPosition"></div>
+                    <p id="modalRole"></p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription"></p>
+                <div class="modal-contact">
+                    <p><i class="fas fa-envelope"></i> <span id="modalEmail"></span></p>
+                    <p><i class="fas fa-phone"></i> <span id="modalPhone"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript -->
+    <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            hamburger.querySelector('i').classList.toggle('fa-bars');
+            hamburger.querySelector('i').classList.toggle('fa-times');
+        });
+        // Modal functionality
+        const modal = document.getElementById('detailsModal');
+        function showModal(role, name, position, description, email, phone) {
+            document.getElementById('modalName').textContent = name;
+            document.getElementById('modalRole').textContent = role;
+            document.getElementById('modalPosition').textContent = position;
+            document.getElementById('modalDescription').textContent = description;
+            document.getElementById('modalEmail').textContent = email;
+            document.getElementById('modalPhone').textContent = phone;
+            const modalImage = document.getElementById('modalImage');
+            if (role.includes('Administration')) {
+                modalImage.src = 'image/cecille.png';
+            } else if (role.includes('Operations')) {
+                modalImage.src = 'image/SIR JB 2.png';
+            } else if (role.includes('Planning')) {
+                modalImage.src = 'image/MAAM NETHS.png';
+            } else if (role.includes('Finance')) {
+                modalImage.src = 'image/LEXTER.png';
+            } else if (role.includes('Logistics')) {
+                modalImage.src = 'image/MELODY.png';
+            } else if (role.includes('Training')) {
+                modalImage.src = 'image/MENARD.png';
+            } else if (role.includes('Early Warning')) {
+                modalImage.src = 'image/FRIOLAN.png';
+            } else {
+                modalImage.src = 'image/MAAM SHEILA.png';
+            }
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        // Highlight nodes on hover
+        const nodes = document.querySelectorAll('.node');
+        nodes.forEach(node => {
+            node.addEventListener('mouseenter', function() {
+                this.classList.add('highlight');
+            });
+            node.addEventListener('mouseleave', function() {
+                this.classList.remove('highlight');
+            });
+        });
+        // Gallery Lightbox
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('galleryLightbox');
+        const lightboxImg = lightbox.querySelector('img');
+        const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        let currentLightboxIndex = 0;
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentLightboxIndex = index;
+                lightboxImg.src = item.querySelector('img').src;
+                lightboxCaption.textContent = item.querySelector('.gallery-caption').textContent;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        function changeLightboxImage(n) {
+            currentLightboxIndex = (currentLightboxIndex + n + galleryItems.length) % galleryItems.length;
+            lightboxImg.src = galleryItems[currentLightboxIndex].querySelector('img').src;
+            lightboxCaption.textContent = galleryItems[currentLightboxIndex].querySelector('.gallery-caption').textContent;
+        }
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
+                closeLightbox();
+            }
+        });
+        // Close lightbox with escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft' && lightbox.style.display === 'flex') {
+                changeLightboxImage(-1);
+            } else if (e.key === 'ArrowRight' && lightbox.style.display === 'flex') {
+                changeLightboxImage(1);
+            }
+        });
+    </script>
+</body>
+</html>

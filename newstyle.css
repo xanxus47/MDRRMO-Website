@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ***==== color Predefined variables ==== ****/
+
+:root{
+
+
+--light-primary: #F4F2FF;
+--primary: #6D5BD0;
+--active:#6E6893;
+--secondary: #25213B;
+--primary-800: #6E689330;
+--header-font-color: #6E6893;
+--tbody-text-color: #6E6893;
+--tbody-text-color-600: #6E6893;
+--primary-bg-color: #E6E6F2;
+--primary-accent-color: #6D5BDO;
+--SuCcess-bg-color: #CDFFCD;
+--success-accent-color: #007F00;
+--danger-bg-color: #F4A8A8;
+--danger-accent-color: #d30000;
+--alert-bg-color: #FFECCC;
+--alert-accent-color : #CE8500;
+
+
+}
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+
+
+
+
+}
+
+/*
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+  border: 3px solid #f0f0f0;
+}
+
+ Firefox */
+
+a{
+    text-decoration: none;
+    color: var(--active);
+    font-size: 14px;
+
+
+
+
+}
+.haba{
+margin-left: 200px;
+
+}
+
+.close-btn{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+.container1{
+  border: 1px solid #ccc;
+  padding: 10px;
+    align-items: center;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: rgba(99,99,99,0.2)0px 2px 8px 0px;
+
+
+
+}.btn-flat {
+  background-color: #28a745; /* solid green */
+  color: #ffffff;
+  border: none;
+  padding: 6px 18px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.cover1 {
+ 
+ 
+  background-size: 1100px 1000px; /* control exact size */
+height: 800px;
+}
+.bok {
+height: 1000px;
+ width: 1500px;
+
+}
+.datatable-bg {
+height: 700px;
+ width: 900px;
+justify-content: center;
+margin: 50px;
+border-color: 2px solid #000000 ;
+border-radius: 4px;
+padding: 10px;  
+
+
+}
+.centered-box {
+  background-color: #fff;
+  padding: 3000px;
+  width: 4000px;
+  text-align: center;
+  border-radius: 15px; /* rounds all 4 corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: responsive border-radius using percentage */
+@media (max-width: 400px) {
+  .centered-box {
+    width: 80%;
+    border-radius: 10%;
+  }
+}
+.btn-flat:hover {
+  background-color: #218838;
+}
+#search {
+      width: 300px;
+      padding: 7px 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #results { width: 100%; }
+.container1 h3{
+color: #000000;
+text-transform: uppercase;
+font-weight:  700;
+text-align: center;
+font-size: 40px;
+margin-bottom: 20px;
+
+
+}
+table{
+    display: block;
+    text-align: left;
+background: #fff;
+ 
+
+
+}
+table thead{
+background: var(--light-primary);height: 48px;
+font-weight: 400;
+text-transform: uppercase;
+color: var(--header-font-color);
+border-top: 1px solid var(--primary-800);
+border-bottom: 1px solid var(--primary-800);
+
+
+
+
+
+}
+table tr th{
+padding: 6px 12px;
+
+
+
+
+}
+table thead tr th{
+    font-size: 16px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ 
+}
+table thead th{
+ white-space: normal;        /* Allow wrapping */
+  word-wrap: break-word;      /* Break long words */
+  overflow-wrap: break-word;  /* Modern equivalent */ 
+  max-width: 900px;           /* Prevent overly wide headers */
+ 
+
+}
+table tbody tr th{
+ position:relative;
+padding: 14px 12px;
+border-bottom: 1px solid var(--primary-800);
+font-size: 16px;
+
+
+}
+table tbody td{
+
+    font-size: 15px;
+    font-weight: 500;
+    
+}
+
+table thead tr th input,
+table tbody tr td input{
+
+    scrollbar-width: 1.25;
+    cursor: pointer;
+
+}
+table tbody tr td .userName{
+    display: block;
+ color: var(--secondary);
+ font-family: 'Courier New', Courier, monospace;
+ font-size: 10px;
+ font-weight: 500;
+
+}
+
+table tfoot{
+    display: flex;
+    justify-content: flex-end;
+align-items: center;
+background: white;
+height: 42px;
+
+
+}
+
+table tfoot tr td{
+    color: var(--active);
+font-size: 14px;
+padding: 4px 10px;
+justify-content: left;
+
+
+
+
+}
+table tfoot tr td span a i
+{
+font-size: 12px;
+
+}
+.haba{
+  width: 100px;
+}
+
